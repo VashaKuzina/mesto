@@ -1,4 +1,3 @@
 .header__line {
-  width: 880px;
-  
+  max-width: 100%; 
 }

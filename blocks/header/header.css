@@ -3,8 +3,23 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  max-width: 880px;
   height: 74px;
-  margin: 0px 200px 0px;
+  margin: 0px auto 0px;
   padding-top: 45px;
   padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 38px;
+    margin: 0;
+    padding-top: 28px;
+  }
 }
