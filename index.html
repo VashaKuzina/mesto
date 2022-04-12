@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <link rel="stylesheet" href="./fonts/Inter/inter.css">
-  <link rel="stylesheet" href="">
   <title>Mesto</title>
 </head>
 <body class="page">  
@@ -23,53 +22,63 @@
       <div class="profile__status">Исследователь океана</div>
     </div>
     <button class="profile__add-button"></button>
+  </section>  
+  <section class="popup">
+    <div class="popup__container">
+      <button class="popup__close-button"></button>
+      <p class="popup__title">Редактировать профиль</p>
+      <input type="text" class="popup__input-text popup__input-text_name">
+      <input type="text" class="popup__input-text popup__input-text_job">
+      <button class="popup__submit-button">Сохранить</button>
+    </div>    
   </section>
   <section class="elements">
     <div class="element">
       <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
       <div class="element__row">
         <div class="element__name">Карачаевск</div>
-        <button class="element__like-button"></button>  
+        <button class="element__like-button element__like-button_disabled"></button>  
       </div>
     </div>
     <div class="element">
       <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
       <div class="element__row">
         <div class="element__name">Гора Эльбрус</div>
-        <button class="element__like-button"></button>
+        <button class="element__like-button element__like-button_disabled"></button>
       </div>
     </div>
     <div class="element">
       <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
       <div class="element__row">
         <div class="element__name">Домбай</div>
-        <button class="element__like-button"></button>
+        <button class="element__like-button element__like-button_disabled"></button>
       </div>
     </div>
     <div class="element">
       <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
       <div class="element__row">
         <div class="element__name">Домбай</div>
-        <button class="element__like-button"></button>
+        <button class="element__like-button element__like-button_disabled"></button>
       </div>
     </div>
     <div class="element">
       <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
       <div class="element__row">
         <div class="element__name">Гора Эльбрус</div>
-        <button class="element__like-button"></button>
+        <button class="element__like-button element__like-button_disabled"></button>
       </div>  
     </div>
     <div class="element">
       <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
       <div class="element__row">
         <div class="element__name">Карачаевско-Черкесия</div>
-        <button class="element__like-button"></button>  
+        <button class="element__like-button element__like-button_disabled"></button>  
       </div>
     </div>
   </section>
   <footer class="footer">
     <p class="footer__copyright">&copy;2022 Mesto Russia</p>
   </footer>
+  <script src="./scripts/script.js"></script>
 </body> 
 </html>          

@@ -4,6 +4,11 @@
   height: 50px;
   background-color: #000000;
   border: none;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 60%;
 }
 
 @media screen and (max-width: 600px) {
