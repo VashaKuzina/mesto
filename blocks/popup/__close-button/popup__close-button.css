@@ -8,6 +8,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 
 .popup__close-button:hover {
@@ -16,7 +17,7 @@
 
 @media screen and (max-width: 499px) {
   .popup__close-button {
-    background-image: url(../../../images/close_320.svg) no-repeat;   
+    background-image: url(../../../images/close_320.svg);   
     width: 20px;
     height: 20px; 
     right: 0px;
