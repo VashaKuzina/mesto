@@ -1,7 +1,7 @@
 .element__row {
   display: flex;
   width: 246px;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 32px;
   align-self: center;
