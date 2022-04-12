@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 499px) {
   .popup__close-button {
-    background-image: url(../../../images/close_320.svg);   
+    background-image: url(../../../images/close_320.svg) no-repeat;   
     width: 20px;
     height: 20px; 
     right: 0px;
