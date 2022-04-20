@@ -4,11 +4,15 @@
   height: 27px;
   font-size: 14px;
   line-height: 17px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid rgba(0,0,0, .2);
   outline: none;
   box-sizing: border-box;
   margin-bottom: 30px;
   padding: 0;
+}
+
+.popup__input-text:nth-last-child(2) {
+  margin-bottom: 48px;
 }
 
 @media screen and (max-width: 499px) {

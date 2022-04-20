@@ -3,3 +3,9 @@
   align-items: center;
 }
 
+@media screen and (max-width: 600px) {
+  .profile__info-row {
+    padding: 26px 0px 14px;
+  }
+}
+

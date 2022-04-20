@@ -4,12 +4,17 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
+  max-width: 294px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1024px) {
   .profile__status {
     font-size: 16px;
     line-height: 19px;
+    max-width: 200px;
   }
 }
 
@@ -19,5 +24,7 @@
     line-height: 17px;
     text-align: center;
     padding-bottom: 36px;
+    margin: 0;
+    max-width: 189px;
   }
 }

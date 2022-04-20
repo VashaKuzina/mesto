@@ -4,10 +4,10 @@
   align-items: flex-start;
   justify-content: space-between;
   max-width: 880px;
-  height: 74px;
   margin: 0px auto 0px;
   padding-top: 45px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(84,84,84, .7);
 }
 
 @media screen and (max-width: 1024px) {
@@ -18,8 +18,8 @@
 
 @media screen and (max-width: 320px) {
   .header {
-    max-width: 38px;
-    margin: 0;
+    max-width: 100%;
+    margin-bottom: 38.25px;
     padding-top: 28px;
   }
 }

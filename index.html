@@ -4,78 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <link rel="stylesheet" href="./fonts/Inter/inter.css">
   <title>Mesto</title>
 </head>
-<body class="page">  
+<body class="page">
   <header class="header">
     <img src="./images/Vector.svg" alt="Место" class="header__logo">
-    <img src="./images/Line.svg" alt="Линия" class="header__line">
   </header>
-  <section class="profile">
-    <div class="profile__avatar"></div>
-    <div class="profile__info">
-      <div class="profile__info-row">
-        <div class="profile__name">Жак-Ив Кусто</div>
-        <button class="profile__edit-button"></button>
+  <main>
+    <section class="profile">
+      <img src="./images/image.jpg" alt="Аватар" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__info-row">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+        </div>
+        <p class="profile__status">Исследователь океана</p>
       </div>
-      <div class="profile__status">Исследователь океана</div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <div class="popup">
+      <form name="form" class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" class="popup__input-text popup__input-text_type_name">
+        <input type="text" class="popup__input-text popup__input-text_type_job">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
     </div>
-    <button class="profile__add-button"></button>
-  </section>  
-  <section class="popup">
-    <div class="popup__container">
-      <button class="popup__close-button"></button>
-      <p class="popup__title">Редактировать профиль</p>
-      <input type="text" class="popup__input-text popup__input-text_name">
-      <input type="text" class="popup__input-text popup__input-text_job">
-      <button class="popup__submit-button">Сохранить</button>
-    </div>    
-  </section>
-  <section class="elements">
-    <div class="element">
-      <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Карачаевск</div>
-        <button class="element__like-button element__like-button_disabled"></button>  
+    <section class="elements">
+      <div class="element">
+        <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Карачаевск</h2>
+          <button class="element__like-button element__like-button_disabled" type="button"></button>
+        </div>
       </div>
-    </div>
-    <div class="element">
-      <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Гора Эльбрус</div>
-        <button class="element__like-button element__like-button_disabled"></button>
+      <div class="element">
+        <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Гора Эльбрус</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
       </div>
-    </div>
-    <div class="element">
-      <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Домбай</div>
-        <button class="element__like-button element__like-button_disabled"></button>
+      <div class="element">
+        <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Домбай</h2>
+          <button class="element__like-button element__like-button_disabled" type="button"></button>
+        </div>
       </div>
-    </div>
-    <div class="element">
-      <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Домбай</div>
-        <button class="element__like-button element__like-button_disabled"></button>
+      <div class="element">
+        <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Домбай</h2>
+          <button class="element__like-button element__like-button_disabled" type="button"></button>
+        </div>
       </div>
-    </div>
-    <div class="element">
-      <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Гора Эльбрус</div>
-        <button class="element__like-button element__like-button_disabled"></button>
-      </div>  
-    </div>
-    <div class="element">
-      <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
-      <div class="element__row">
-        <div class="element__name">Карачаевско-Черкесия</div>
-        <button class="element__like-button element__like-button_disabled"></button>  
+      <div class="element">
+        <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Гора Эльбрус</h2>
+          <button class="element__like-button element__like-button_disabled" type="button"></button>
+        </div>  
       </div>
-    </div>
-  </section>
+      <div class="element">
+        <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__image">
+        <div class="element__row">
+          <h2 class="element__name">Карачаевско-Черкесия</h2>
+          <button class="element__like-button element__like-button_disabled" type="button"></button>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;2022 Mesto Russia</p>
   </footer>
