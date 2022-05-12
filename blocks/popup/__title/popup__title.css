@@ -6,6 +6,8 @@
   margin-top: 34px;
   margin-bottom: 54px;
   padding: 0;
+  text-align: left;
+  align-self: flex-start;
 }
 
 @media screen and (max-width: 499px) {
