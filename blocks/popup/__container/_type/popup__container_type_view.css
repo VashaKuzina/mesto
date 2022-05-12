@@ -1,9 +1,9 @@
 .popup__container_type_view {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   z-index: 2;
   position: relative;
+  width: initial !important;
 }
 
