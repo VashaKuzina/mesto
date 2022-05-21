@@ -85,7 +85,7 @@ function createCard(name, link) {
 
   initialCardsElement.querySelector('.element__name').textContent = name;
   initialCardsElement.querySelector('.element__image').src = link;
-  initialCardsElement.querySelector('.element__image').alt =name;
+  initialCardsElement.querySelector('.element__image').alt = name;
 
   initialCardsElement.querySelector('.element__delete-button').addEventListener('click', function() {
     initialCardsElement.remove();
@@ -99,6 +99,7 @@ initialCardsElement.querySelector('.element__image').addEventListener('click', (
   openPopup(popupView);
   popupImage.src = link;
   popupCaption.textContent = name;
+  popupImage.alt = name;
 });
 return initialCardsElement
 }
@@ -114,9 +115,6 @@ addButton.addEventListener('click', () => openPopup(popupAdd));
 formElement.addEventListener('submit', handleProfileFormSubmit);
 
 formElementAdd.addEventListener('submit', handleCardFormSubmit);
-
-
-console.log(popups);
 
 popups.forEach((popups) => {
     popups.addEventListener('click', (evt) => {
