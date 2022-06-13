@@ -1,5 +1,4 @@
 .popup__submit-button_inactive {
   user-select: none;
   pointer-events: none;
-  border: 1px solid red;
 }
