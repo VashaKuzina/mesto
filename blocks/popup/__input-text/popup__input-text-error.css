@@ -9,3 +9,9 @@
   top: calc(40% + 5px);
   left: 0;
 }
+
+@media screen and (max-width: 499px) {
+  .popup__input-text-error {
+    max-width: 238px; 
+  }
+}
