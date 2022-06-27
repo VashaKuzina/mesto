@@ -1,29 +1,24 @@
 const profile = document.querySelector('.profile');
-const editButton = profile.querySelector('.profile__edit-button');
-const popupEdit = document.querySelector('.popup_type_edit');
+const profileButton = profile.querySelector('.profile__edit-button');
+const popupProfile = document.querySelector('.popup_type_edit');
 const popups = document.querySelectorAll('.popup');
-const coloseButtonEdit = popupEdit.querySelector('.popup__close-button');
-const popupAdd = document.querySelector('.popup_type_add');
-const formElementAdd = popupAdd.querySelector('.popup__container');
-const coloseButtonAdd = popupAdd.querySelector('.popup__close-button');
-const formAdd = popupAdd.querySelector('.popup__form');
-const nameInput = popupEdit.querySelector('.popup__input-text_type_name');
-const jobInput = popupEdit.querySelector('.popup__input-text_type_job');
-const formElement =popupEdit.querySelector('.popup__container');
+const popupCard = document.querySelector('.popup_type_add');
+const containerCard = popupCard.querySelector('.popup__container');
+const formCard = popupCard.querySelector('.popup__form');
+const nameInput = popupProfile.querySelector('.popup__input-text_type_name');
+const jobInput = popupProfile.querySelector('.popup__input-text_type_job');
+const containerProfile = popupProfile.querySelector('.popup__container');
 const nameProfile = profile.querySelector('.profile__name');
 const jobProfile = profile.querySelector('.profile__status');
 const elementTemplate = document.querySelector('#element-template').content;
-const likeButton = document.querySelector('.element__like-button');
-const imageCards = document.querySelector('.element__image');
 const nameCards = document.querySelector('.element__name');
 const listCards = document.querySelector('.elements');
-const addButton = profile.querySelector('.profile__add-button');
+const cardButton = profile.querySelector('.profile__add-button');
 const popupView = document.querySelector('.popup_type_view');
 const popupImage = popupView.querySelector('.popup__image');
 const popupCaption = popupView.querySelector('.popup__caption');
-const coloseButtonView = popupView.querySelector('.popup__close-button');
-const nameCardInput = popupAdd.querySelector('.popup__input-text_type_name-card');
-const linkInput = popupAdd.querySelector('.popup__input-text_type_link');
+const nameCardInput = popupCard.querySelector('.popup__input-text_type_name-card');
+const linkInput = popupCard.querySelector('.popup__input-text_type_link');
 
 const initialCards = [
   {
@@ -54,14 +49,30 @@ const initialCards = [
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keyup', closeByEsc);
+  const inputList = Array.from(popup.querySelectorAll('.popup__input-text'));
+  const buttonElement = popup.querySelector('.popup__submit-button');
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', (evt) => {
+    console.log(inputElement);
+    isValid(popup, inputElement);
+  });
+  toggleButtonState(inputList, buttonElement, 'popup__submit-button_inactive');
+});
+}
+
+function openPopupImage(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keyup', closeByEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', closeByEsc);
 }
 
-function showPopupEdit() {
-  openPopup(popupEdit);
+function showPopupProfile() {
+  openPopup(popupProfile);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 }
@@ -70,22 +81,23 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
-  closePopup(popupEdit);
+  closePopup(popupProfile);
 }
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   listCards.prepend(createCard (nameCardInput.value, linkInput.value));
-  formAdd.reset();
-  closePopup(popupAdd);
+  formCard.reset();
+  closePopup(popupCard);
 }
 
 function createCard(name, link) {
   const initialCardsElement = elementTemplate.querySelector('.element').cloneNode(true);
+  const imageCards = initialCardsElement.querySelector('.element__image');
 
   initialCardsElement.querySelector('.element__name').textContent = name;
-  initialCardsElement.querySelector('.element__image').src = link;
-  initialCardsElement.querySelector('.element__image').alt = name;
+  imageCards.src = link;
+  imageCards.alt = name;
 
   initialCardsElement.querySelector('.element__delete-button').addEventListener('click', function() {
     initialCardsElement.remove();
@@ -95,8 +107,8 @@ function createCard(name, link) {
     evt.target.classList.toggle('element__like-button_active');
 });
 
-initialCardsElement.querySelector('.element__image').addEventListener('click', () => {
-  openPopup(popupView);
+imageCards.addEventListener('click', () => {
+  openPopupImage(popupView);
   popupImage.src = link;
   popupCaption.textContent = name;
   popupImage.alt = name;
@@ -108,14 +120,21 @@ initialCards.forEach((initialCards) => {
   listCards.append(createCard (initialCards.name, initialCards.link));
 })
 
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
+  }
+}  
 
-editButton.addEventListener('click', showPopupEdit);
 
-addButton.addEventListener('click', () => openPopup(popupAdd));
+profileButton.addEventListener('click', showPopupProfile);
 
-formElement.addEventListener('submit', handleProfileFormSubmit);
+cardButton.addEventListener('click', () => openPopup(popupCard));
 
-formElementAdd.addEventListener('submit', handleCardFormSubmit);
+containerProfile.addEventListener('submit', handleProfileFormSubmit);
+
+containerCard.addEventListener('submit', handleCardFormSubmit);
 
 popups.forEach((popups) => {
     popups.addEventListener('click', (evt) => {
@@ -123,13 +142,8 @@ popups.forEach((popups) => {
           closePopup(popups)
         }
     })
-    document.addEventListener('keyup', (evt) => {
-      if (evt.key === 'Escape') {
-        closePopup(popups);
-      }
-    })
-    document.addEventListener('click', (evt) => {
-      if ( evt.target.classList.contains('popup_opened')) {
+    popups.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
         closePopup(popups);
       }
     })  
