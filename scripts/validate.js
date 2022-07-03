@@ -41,11 +41,16 @@ const showInputError = (formElem, inputElement, errorMessage, inputErrorClass) =
   
   const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add(inactiveButtonClass);
+      inactiveButton(buttonElement, inactiveButtonClass);
     } 
     else {
+
       buttonElement.classList.remove(inactiveButtonClass);
     }
+  };
+
+  const inactiveButton = (buttonElement, inactiveButtonClass) => {
+    buttonElement.classList.add(inactiveButtonClass);
   };
   
   const enableValidation = ({formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass}) => {
@@ -58,11 +63,5 @@ const showInputError = (formElem, inputElement, errorMessage, inputErrorClass) =
     });
   }
 
-  enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input-text',
-    submitButtonSelector: '.popup__submit-button',
-    inactiveButtonClass: 'popup__submit-button_inactive',
-    inputErrorClass: 'popup__input-text_type_error',
-    errorClass: 'popup__error_visible'
-  });
+
+
