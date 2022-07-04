@@ -85,15 +85,9 @@ function handleProfileFormSubmit(evt) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputList = Array.from(formCard.querySelectorAll('.popup__input-text'));
-    if (!hasInvalidInput(inputList)) {
-      listCards.prepend(createCard (nameCardInput.value, linkInput.value));
-      formCard.reset();
-      closePopup(popupCard);
-    }
-    else {
-      return;
-    }
+  listCards.prepend(createCard (nameCardInput.value, linkInput.value));
+  formCard.reset();
+  closePopup(popupCard);
   }
 
 function createCard(name, link) {

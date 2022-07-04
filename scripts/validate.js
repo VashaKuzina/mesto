@@ -33,7 +33,6 @@ const showInputError = (formElem, inputElement, errorMessage, inputErrorClass) =
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', (evt) => {
         isValid(formElem, inputElement, inputErrorClass);
-        console.log(formElem);
         toggleButtonState(inputList, buttonElement, inactiveButtonClass);
       });
     });
@@ -44,23 +43,21 @@ const showInputError = (formElem, inputElement, errorMessage, inputErrorClass) =
       inactiveButton(buttonElement, inactiveButtonClass);
     } 
     else {
-
       buttonElement.classList.remove(inactiveButtonClass);
+      buttonElement.removeAttribute('disabled');
     }
   };
 
   const inactiveButton = (buttonElement, inactiveButtonClass) => {
     buttonElement.classList.add(inactiveButtonClass);
+    buttonElement.setAttribute('disabled', 'disabled');
   };
   
   const enableValidation = ({formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass}) => {
     const formList = Array.from(document.querySelectorAll(formSelector));
      formList.forEach((formElem) => {
-      formElem.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-        });
       setEventListeners(formElem, {formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass});
-    });
+     })
   }
 
 
