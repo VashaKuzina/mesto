@@ -8,7 +8,7 @@
 </head>
 <body class="page">
   <header class="header">
-    <img src="./images/Vector.svg" alt="Место" class="header__logo">
+    <link rel="shortcut icon" href="./images/Vector.svg" alt="Место" class="header__logo">
   </header>
   <main>
     <section class="profile">
@@ -26,6 +26,7 @@
     
     </section>
   </main>
+
   <template id="element-template">
     <div class ="element">
       <img class="element__image">
@@ -36,10 +37,11 @@
       </div>
     </div>
   </template>
+
   <div class="popup popup_type_edit">
     <div class="popup__container">
       <button class="popup__close-button" type="button"></button>
-      <form name="form" class="popup__form" novalidate>
+      <form name="form" class="popup__form popup__form_type_edit" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
         <label class="popup__field">
           <input id="popup__name-input" type="text" class="popup__input-text popup__input-text_type_name" minlength="2" maxlength="40" required>
@@ -53,10 +55,11 @@
       </form>
     </div>
   </div>
+
   <div class="popup popup_type_add">
     <div class="popup__container">
       <button class="popup__close-button" type="button"></button>
-      <form name="form" class="popup__form" novalidate>
+      <form name="form" class="popup__form popup__form_type_add" novalidate>
         <h2 class="popup__title">Новое место</h2>
         <label class="popup__field">
           <input id="popup__name-card-input" type="text" class="popup__input-text popup__input-text_type_name-card" placeholder="Название" minlength="2" maxlength="30" required>
@@ -70,17 +73,18 @@
       </form>
     </div>
   </div>
+  
   <div class="popup popup_type_view">
     <div class="popup__container popup__container_type_view">
       <button class="popup__close-button" type="button"></button>
-      <img src="#" class="popup__image" >
+      <img src="#" class="popup__image">
       <h2 class="popup__caption"></h2>
     </div>
   </div>
+
   <footer class="footer">
     <p class="footer__copyright">&copy;2022 Mesto Russia</p>
   </footer>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/script.js"></script>
+  <script type="module" src="./scripts/script.js"></script>
 </body> 
 </html>
