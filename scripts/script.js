@@ -66,6 +66,7 @@ function showPopupProfile() {
   openPopup(popupProfile);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
+  profileFormValidator.inactiveButton();
 }
 
 function handleProfileFormSubmit(evt) {
@@ -76,24 +77,27 @@ function handleProfileFormSubmit(evt) {
 }
 
 function showPopupView() {
-  openPopup(document.querySelector('.popup_type_view'));
+  openPopup(popupView);
 }
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const card = new Card(nameCardInput.value, linkInput.value, '#element-template', showPopupView, popupImage, popupCaption);
-  const cardElement = card.generateCard();
+  const cardElement = createCard(nameCardInput.value, linkInput.value);
   listCards.prepend(cardElement);
   formCard.reset();
   closePopup(popupCard);
   }
   
   initialCards.forEach((initialCards) => {
-    const card = new Card(initialCards.name, initialCards.link, '#element-template', showPopupView, popupImage, popupCaption);
-    const cardElement = card.generateCard();
+    const cardElement = createCard(initialCards.name, initialCards.link);
     listCards.append(cardElement);
-  })
+  });
 
+function createCard(name, link) {
+  const card = new Card(name, link, '#element-template', showPopupView, popupImage, popupCaption);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
 
 const profileFormValidator = new FormValidator(configFormSelectors, formProfile);
 console.log(profileFormValidator);
@@ -114,12 +118,12 @@ profileButton.addEventListener('click', showPopupProfile);
 
 cardButton.addEventListener('click', () =>{
 openPopup(popupCard);
-cardFormValidator.inactiveButton();
+cardFormValidator.resetValidation();
 });
 
-containerProfile.addEventListener('submit', handleProfileFormSubmit);
+formProfile.addEventListener('submit', handleProfileFormSubmit);
 
-containerCard.addEventListener('submit', handleCardFormSubmit);
+formCard.addEventListener('submit', handleCardFormSubmit);
 
 popups.forEach((popups) => {
   popups.addEventListener('click', (evt) => {

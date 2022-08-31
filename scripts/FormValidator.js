@@ -45,7 +45,15 @@ export default class FormValidator {
       this._buttonElement.classList.add(this._formSelector.inactiveButtonClass);
       this._buttonElement.setAttribute('disabled', 'disabled');
     };
-  
+
+    resetValidation() {
+      this._toggleButtonState();
+      this._inputList.forEach((inputElement) => {
+        this._hideInputError(inputElement) 
+
+    });
+  }
+
     _setEventListeners() {
       this._inputList = Array.from(this._formElem.querySelectorAll(this._formSelector.inputSelector)); 
       this._buttonElement = this._formElem.querySelector(this._formSelector.submitButtonSelector); 
@@ -53,17 +61,13 @@ export default class FormValidator {
       this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
         this._isValid(inputElement);
-        this._toggleButtonState(this._inputList, this._buttonElement, this.inactiveButtonClass);
+        this._toggleButtonState();
         });
       });
     }
   
     enableValidation() {
-        this._formElem.addEventListener("sumbit", (evt) => {
-            evt.preventDefault();
-        })
           this._setEventListeners();
-       
     }
   
   }

@@ -4,7 +4,7 @@ export default class Card{
       this._link = link;
       this._templateSelector = templateSelector;
       this._handleCardClick = handleCardClick;
-      this._popupCaption = popupCaption;
+      this._popupCaption = popupCaption; 
       this._popupImage = popupImage; 
     }
   
@@ -25,7 +25,7 @@ export default class Card{
   
       this._element.querySelector('.element__name').textContent = this._name;
       this._element.querySelector('.element__image').src = this._link;
-      this._element.querySelector('.element__name').alt = this._name;
+      this._element.querySelector('.element__name').textContent = this._name;
 
       return this._element;
     }
@@ -50,13 +50,14 @@ export default class Card{
     
     _handleRemoveClick(){
       this._element.remove();
+      this._element = null;
     }
     
     _handlePopupViewClick() {
       this._handleCardClick();
-      this._popupImage.src = this._link;
-      this._popupCaption.textContent = this._name;
-      this._popupImage.alt = this._name;
+      this._popupImage.src = this._link; 
+      this._popupCaption.textContent = this._name; 
+      this._popupImage.alt = this._name; 
       };
     }
 
